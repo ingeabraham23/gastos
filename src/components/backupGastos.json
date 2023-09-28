@@ -1,10 +1,24 @@
 [
-    {
-      "fecha": "2023-09-28T03:09:26.690Z",
-      "descripcion": "Gasolina Chevy Chignautla",
-      "cantidad": 1,
-      "precio": 300,
-      "categoria": "Transporte",
-      "id": 1
-    }
-  ]
+  {
+    "fecha": "2023-09-27T20:51:50.000Z",
+    "dia": "27",
+    "mes": "09",
+    "año": "2023",
+    "descripcion": "Gasolina chevy chignautla",
+    "cantidad": 1,
+    "precio": 300,
+    "categoria": "Transporte",
+    "id": 10
+  },
+  {
+    "fecha": "2023-09-27T20:52:21.000Z",
+    "dia": "27",
+    "mes": "09",
+    "año": "2023",
+    "descripcion": "Piña",
+    "cantidad": 2,
+    "precio": 80,
+    "categoria": "Alimentacion",
+    "id": 11
+  }
+]

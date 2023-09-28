@@ -1,0 +1,88 @@
+/* Estilos para hacer el componente responsive */
+@media (max-width: 600px) {
+    /* Estilos específicos para pantallas pequeñas (por ejemplo, móviles) */
+    /* Puedes ajustar estos estilos según tus necesidades */
+    table {
+      font-size: 12px; /* Reducir el tamaño de fuente en pantallas pequeñas */
+    }
+    th, td {
+      padding: 8px;
+    }
+  }
+  
+  /* Estilos generales para la tabla y las celdas */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif; /* Cambiar la fuente */
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Estilos para encabezados de tabla */
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333; /* Cambiar el color del texto */
+  }
+  
+  /* Estilos para filas impares */
+  tr:nth-child(odd) {
+    background-color: #f5f5f5;
+  }
+  
+  /* Estilos para filas pares */
+  tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  /* Estilos para el encabezado principal */
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333; /* Cambiar el color del texto */
+  }
+  
+  /* Estilos para los filtros */
+  label {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #555; /* Cambiar el color del texto */
+  }
+  
+  select, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Agregar un borde a los campos de entrada */
+    border-radius: 4px; /* Redondear los bordes */
+  }
+  
+  /* Estilos para los botones de filtro (si tienes botones) */
+  button {
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el botón "Aplicar Filtros" (un ejemplo) */
+  #aplicarFiltros {
+    background-color: #28a745;
+  }
+  
+  /* Estilos para los elementos seleccionados en el filtro de categoría */
+  select:focus {
+    outline: none;
+    border-color: #007BFF; /* Cambiar el color del borde al enfocar */
+  }
+  
+  /* Puedes agregar más estilos según tus preferencias */
+  

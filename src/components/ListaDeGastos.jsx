@@ -1,15 +1,17 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState, useEffect } from "react";
 import database from "../db";
-import { format, startOfWeek, endOfWeek } from "date-fns";
-import DatePicker from "react-datepicker";
+//import { format, parseISO } from "date-fns";
+//import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "./ListaDeGastos.css";
 
 function ListaDeGastos() {
   const [gastos, setGastos] = useState([]);
+  const [filtroDia, setFiltroDia] = useState("");
+  const [filtroMes, setFiltroMes] = useState("");
+  const [filtroAño, setFiltroAño] = useState("");
   const [filtroCategoria, setFiltroCategoria] = useState("Todas");
-  const [filtroFecha, setFiltroFecha] = useState(null); // Cambiado a null
-  const [filtroSemana, setFiltroSemana] = useState(null); // Cambiado a null
 
   const categorias = [
     "Todas",
@@ -46,19 +48,21 @@ function ListaDeGastos() {
       );
     }
 
-    if (filtroFecha !== null) {
+    if (filtroDia !== "") {
       gastosFiltrados = gastosFiltrados.filter(
-        (gasto) => format(gasto.fecha, "dd/MM/yyyy") === format(filtroFecha, "dd/MM/yyyy")
+        (gasto) => gasto.dia === filtroDia
       );
     }
 
-    if (filtroSemana !== null) {
-      const inicioSemana = startOfWeek(filtroSemana, { weekStartsOn: 1 }); // 1 = lunes
-      const finSemana = endOfWeek(filtroSemana, { weekStartsOn: 1 }); // 1 = lunes
-
+    if (filtroMes !== "") {
       gastosFiltrados = gastosFiltrados.filter(
-        (gasto) =>
-          gasto.fecha >= inicioSemana && gasto.fecha <= finSemana
+        (gasto) => gasto.mes === filtroMes
+      );
+    }
+
+    if (filtroAño !== "") {
+      gastosFiltrados = gastosFiltrados.filter(
+        (gasto) => gasto.año === filtroAño
       );
     }
 
@@ -82,27 +86,36 @@ function ListaDeGastos() {
         </select>
       </div>
       <div>
-        <label>Filtrar por Fecha:</label>
-        <DatePicker
-          selected={filtroFecha}
-          onChange={(date) => setFiltroFecha(date)}
-          dateFormat="dd/MM/yyyy" // Personaliza el formato de la fecha
-          isClearable // Agrega un botón para borrar la fecha
+        <label>Filtrar por Día:</label>
+        <input
+          type="text"
+          value={filtroDia}
+          onChange={(e) => setFiltroDia(e.target.value)}
         />
       </div>
       <div>
-        <label>Filtrar por Semana:</label>
-        <DatePicker
-          selected={filtroSemana}
-          onChange={(date) => setFiltroSemana(date)}
-          dateFormat="dd/MM/yyyy" // Personaliza el formato de la fecha
-          isClearable // Agrega un botón para borrar la fecha
+        <label>Filtrar por Mes:</label>
+        <input
+          type="text"
+          value={filtroMes}
+          onChange={(e) => setFiltroMes(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Filtrar por Año:</label>
+        <input
+          type="text"
+          value={filtroAño}
+          onChange={(e) => setFiltroAño(e.target.value)}
         />
       </div>
       <table>
         <thead>
           <tr>
-            <th>Fecha</th>
+            {/* <th>Fecha</th> */}
+            <th>Día</th>
+            <th>Mes</th>
+            <th>Año</th>
             <th>Descripción</th>
             <th>Cantidad</th>
             <th>Precio</th>
@@ -112,7 +125,11 @@ function ListaDeGastos() {
         <tbody>
           {filtrarGastos().map((gasto) => (
             <tr key={gasto.id}>
-              <td>{format(gasto.fecha, "dd/MM/yyyy")}</td>
+              {/* <td>{format(parseISO(gasto.fecha), "dd/MM/yyyy")}</td> */}
+              <td>{gasto.dia}</td>
+              <td>{gasto.mes}</td>
+              <td>{gasto.año}</td>
+
               <td>{gasto.descripcion}</td>
               <td>{gasto.cantidad}</td>
               <td>{gasto.precio}</td>
